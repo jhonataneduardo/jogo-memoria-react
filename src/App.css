@@ -1,38 +1,57 @@
-.App {
+h1 {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  width: 80%;
+  margin: 0 auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.start {
+  text-align: center;
+}
+.start button {
+  background: #5c5cf7;
+  border-radius: 3px;
+  margin: 15px 0 20px 0;
+  padding: 15px 25px;
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.start button:hover {
+  background: #1c40e2;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.lista-cartas {
+  width: 100%;
+  display: table;
+  padding: 5px 5px;
+  background: #f4f4f4;
+  border-radius: 3px;
+}
+
+.carta {
+  width: 25%;
+  float: left;
+  cursor: pointer;
+}
+
+.carta span {
+  height: 200px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  background: #ccc;
+  margin: 5px;
+  border-radius: 5px;
+  transition: 0.5s;
+  font-size: 28px;
+  font-weight: 900;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.carta span:hover {
+  background: #929292;
 }
