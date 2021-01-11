@@ -9,6 +9,7 @@ class App extends Component {
     this.state = {
       playScore: 0,
       start: false,
+      indexCartasViradas: [],
       cartas: [
         {
           number: 2,
@@ -63,7 +64,7 @@ class App extends Component {
     const carta = this.state.cartas[index];
     if (!this.state.start) { return; }
     return (
-      <div className="carta" key={`carta-${index}`}>
+      <div className="carta" key={`carta-${index}`} onClick={() => this.abrirCarta(index)}>
         <span>{carta.opened && carta.number}</span>
       </div>
     ) 
@@ -71,6 +72,44 @@ class App extends Component {
 
   renderCartas() {
     return this.state.cartas.map((carta, index) => this.cartaDisplay(index));
+  }
+
+  verficarCartasAbertas() {
+    const indexCartasViradas = this.state.indexCartasViradas;
+    const todasCartas = this.state.cartas;
+    if (indexCartasViradas.length === 2) {
+      const indexA = indexCartasViradas[0]
+      const indexB = indexCartasViradas[1]
+      const cartaA = todasCartas[indexA];
+      const cartaB = todasCartas[indexB];
+      if (cartaA.number === cartaB.number) {
+        cartaA.finded = true;
+        cartaB.finded = true;
+        todasCartas[indexA] = cartaA;
+        todasCartas[indexB] = cartaB;
+        this.setState({ cartas: todasCartas, indexCartasViradas: [] });
+        alert('Acertou');
+      } else {
+        alert('Errado');
+        cartaA.opened = false;
+        cartaB.opened = false;
+        todasCartas[indexA] = cartaA;
+        todasCartas[indexB] = cartaB;
+        this.setState({ cartas: todasCartas, indexCartasViradas: [] });
+      }
+    }
+  }
+  abrirCarta(index) {
+    const indexCartasViradas = this.state.indexCartasViradas
+    const carta = this.state.cartas[index];
+    carta.opened = true;
+    const allCartas = this.state.cartas;
+    allCartas[index] = carta;
+    if (indexCartasViradas.length > 2) {return;}
+    indexCartasViradas.push(index);
+    this.setState({ cartas: allCartas, indexCartasViradas: indexCartasViradas})
+    setTimeout(() => this.verficarCartasAbertas(), 500);
+    
   }
 
   render() {
