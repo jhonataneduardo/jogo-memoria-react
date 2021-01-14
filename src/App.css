@@ -7,7 +7,7 @@ h1 {
 }
 
 .start {
-  text-align: center;
+  text-align: left;
 }
 .start button {
   background: #5c5cf7;
@@ -54,4 +54,24 @@ h1 {
 
 .carta span:hover {
   background: #929292;
+}
+
+.carta span.erro {
+  background: #e28181;
+}
+
+.carta span.acerto {
+  background: #86c0f2;
+  animation: efeitoAcerto 1s;
+}
+
+@keyframes efeitoAcerto {
+  0%   {background: #cccccc;}
+  15%  {background: #86c0f2;}
+  30%  {background: #cccccc;}
+  45%  {background: #86c0f2;}
+  65%  {background: #cccccc;}
+  75%  {background: #86c0f2;}
+  85%  {background: #cccccc;}
+  100% {background: #86c0f2;}
 }

@@ -65,7 +65,7 @@ class App extends Component {
     if (!this.state.start) { return; }
     return (
       <div className="carta" key={`carta-${index}`} onClick={() => this.abrirCarta(index)}>
-        <span>{carta.opened && carta.number}</span>
+        <span className={carta.finded && 'acerto'}>{carta.opened && carta.number}</span>
       </div>
     ) 
   }
@@ -88,7 +88,6 @@ class App extends Component {
         todasCartas[indexA] = cartaA;
         todasCartas[indexB] = cartaB;
         this.setState({ cartas: todasCartas, indexCartasViradas: [] });
-        alert('Acertou');
       } else {
         alert('Errado');
         cartaA.opened = false;
@@ -108,7 +107,7 @@ class App extends Component {
     if (indexCartasViradas.length > 2) {return;}
     indexCartasViradas.push(index);
     this.setState({ cartas: allCartas, indexCartasViradas: indexCartasViradas})
-    setTimeout(() => this.verficarCartasAbertas(), 500);
+    setTimeout(() => this.verficarCartasAbertas(), 200);
     
   }
 
