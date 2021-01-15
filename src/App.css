@@ -6,10 +6,10 @@ h1 {
   margin: 0 auto;
 }
 
-.start {
+.play {
   text-align: left;
 }
-.start button {
+.play button {
   background: #5c5cf7;
   border-radius: 3px;
   margin: 15px 0 20px 0;
@@ -21,7 +21,7 @@ h1 {
   cursor: pointer;
   transition: 0.5s;
 }
-.start button:hover {
+.play button:hover {
   background: #1c40e2;
 }
 
@@ -58,6 +58,18 @@ h1 {
 
 .carta span.erro {
   background: #e28181;
+  animation: efeitoErro 1s;
+}
+
+@keyframes efeitoErro {
+  0%   {background: #cccccc;}
+  15%  {background: #e28181;}
+  30%  {background: #cccccc;}
+  45%  {background: #e28181;}
+  65%  {background: #cccccc;}
+  75%  {background: #e28181;}
+  85%  {background: #cccccc;}
+  100% {background: #e28181;}
 }
 
 .carta span.acerto {

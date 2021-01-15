@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+import Header from './components/Header';
+import Play from './components/Play';
+import ListaCartas from './components/ListaCartas';
+
 import './App.css';
 
 class App extends Component {
@@ -7,6 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      status: 'jogando',
       playScore: 0,
       start: false,
       indexCartasViradas: [],
@@ -114,12 +119,14 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <h1>Jogo da Memória</h1>
+        <Header />
         <hr/>
-        <div className="start">
+        <Play />
+        {/* <div className="start">
           <button onClick={() => this.playStart()}>Iniciar Jogo</button>
-        </div>
-        {this.renderCartas()}
+        </div> */}
+        <ListaCartas />
+        {/* {this.renderCartas()} */}
       </div>
     )
   }
